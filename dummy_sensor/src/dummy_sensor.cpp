@@ -4,8 +4,6 @@
 #include <gz/msgs.hh>
 #include <gz/transport.hh>
 
-//#include "include/dummy_sensor.hpp"
-
 #include <iostream>
 
 namespace dummy_sensor
@@ -18,6 +16,9 @@ namespace dummy_sensor
     DummySensor() : node()
     {
       publisher = node.Advertise<gz::msgs::StringMsg>("/dummy_sensor_topic");
+
+      node.Subscribe("/dummy_sensor_topic",
+        &DummySensor::OnMessageReceived, this);
     }
 
     void Configure(const gz::sim::Entity &_entity,
@@ -33,12 +34,18 @@ namespace dummy_sensor
       gz::msgs::StringMsg msg;
       msg.set_data("Hello World from DummySensor!");
       publisher.Publish(msg);
-      std::cout << "DummySensor loaded and message published!\n\n\n\n\n\n\n\n\n\n\n" << std::endl;
+      std::cout << "Dummy Sensor loaded and message published!\n\n\n\n\n\n\n\n\n\n\n\n\n\n" << std::endl;
     }
 
   private:
     gz::transport::Node node;
     gz::transport::Node::Publisher publisher;
+
+    // Callback to receive messages on the same topic
+    void OnMessageReceived(const gz::msgs::StringMsg &_msg)
+    {
+      std::cout << "Message received: " << _msg.data() << "\n\n\n\n\n\n\n\n\n\n" << std::endl;
+    }
   };
 } // namespace dummy_sensor
 
