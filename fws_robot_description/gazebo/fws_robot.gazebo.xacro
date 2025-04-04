@@ -45,6 +45,15 @@
       </sensor>
     </gazebo>
 
+    <gazebo reference="dummy_sensor_link">
+      <sensor type="custom" name="dummy_sensor1">
+        <plugin
+          filename="libdummy_sensor.so"
+          name="dummy_sensor::DummySensor">
+        </plugin>
+      </sensor>
+    </gazebo>
+
   </xacro:macro>
     
 </robot>

@@ -104,5 +104,42 @@
 
   <xacro:fws_robot_gazebo/>
   <xacro:fws_robot_ros2_control/>
+
+  <joint type="fixed" name="dummy_sensor_joint">
+    <origin xyz="0.1 0 0.06" ryp="0 0 0"/>
+    <child link="dummy_sensor_link"/>
+    <parent link="base_link"/>
+    <axis xyz="0 1 0"/>
+  </joint>
+
+  <link name="dummy_sensor_link">
+    <pose>0 0 0 0 0 0</pose>
+    <inertial>
+      <mass value="0.1"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia
+        ixx="1e-6" ixy="0" ixz="0"
+        iyy="1e-6" iyz="0"
+        izz="1e-6"/>
+    </inertial>
+
+    <collision name="collision">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size=".03 .03 .03"/>
+      </geometry>
+    </collision>
+
+    <visual name="dummy_sensor_visual">
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size=".03 .03 .03"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <gazebo reference="dummy_sensor_link">
+    <material>Gazebo/Red</material>
+  </gazebo>
     
 </robot>

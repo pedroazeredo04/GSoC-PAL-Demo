@@ -181,11 +181,5 @@
         <falloff>0</falloff>
       </spot>
     </light>
-
-    <plugin
-      filename="libdummy_sensor.so"
-      name="dummy_sensor::DummySensor">
-    </plugin>
-
   </world>
 </sdf>
