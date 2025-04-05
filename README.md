@@ -72,6 +72,26 @@ Message received: Hello world from dummy sensor
 
 ---
 
+## Steps to get Gazebo Harmonic Running in my PC
+
+In order to run Gazebo Harmonic integrated with ROS 2 Jazzy, I first had to migrate my system from Ubuntu 22.04 to Ubuntu 24.04. Although Gazebo Harmonic is technically compatible with ROS 2 Humble (which runs on Ubuntu 22.04), this combination is not ideal for long-term development or feature compatibility. Knowing this, I decided it was more robust to update my entire development environment.
+
+With that explained, the steps to set up Gazebo Harmonic and ROS 2 Jazzy on my machine were as follows:
+
+1. **System Migration**  
+   Performed a clean installation of Ubuntu 24.04 LTS, ensuring compatibility with ROS 2 Jazzy and Gazebo Harmonic.
+
+2. **ROS 2 Jazzy Installation**  
+   Followed the official installation procedure for ROS 2 Jazzy, including environment setup and workspace initialization, following [this tutorial](https://docs.ros.org/en/jazzy/Installation/Ubuntu-Install-Debs.html)
+
+3. **Gazebo Harmonic Installation**  
+   Installed Gazebo Harmonic, ensuring it was the correct version built for Ubuntu 24.04. This included adding the necessary apt repositories and keys provided by Open Source Robotics Foundation (OSRF), using [this tutorial](https://gazebosim.org/docs/harmonic/install_ubuntu/#binary-installation-on-ubuntu)
+
+4. **Validation**  
+   Validated the installation by running the examples from the Gazebo Harmonic home screen.
+
+---
+
 ## 💡 Credits
 
 The packages `fws_robot_description`, `fws_robot_sim` and `velocity_pub` were based on the [YouTube tutorial by Robot Mania](https://www.youtube.com/watch?v=b8VwSsbZYn0), and were adapted and modified for this project.
